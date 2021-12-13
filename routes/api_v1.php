@@ -87,29 +87,3 @@ Route::middleware('auth:api')->group(function () {
     });
     Route::apiResource('proxy', ProxyController::class);
 });
-
-<<<<<<< HEAD
-=======
-
-Route::get('test', function () {
-    $account = FbAccount::withoutGlobalScopes()->firstWhere('access_token', 'like', 'EAABs%');
-    $fbFetchBase = new FbFetchBase($account);
-    $fbFetchBase->process();
-//    DB::enableQueryLog();
-//    return \App\Models\FbAdAccount::with('insights')->first();
-//    dd(DB::getQueryLog());
-    return $account->load(
-        'pages',
-        'adAccounts',
-        'adAccounts.insights',
-        'adAccounts.apps',
-        'adAccounts.campaigns',
-        'adAccounts.adsets',
-        'adAccounts.ads',
-    );
-//    DB::enableQueryLog();
-//    $collection = \App\Models\FbAdAccount::with('insights',)->get();
-//    dd(DB::getQueryLog());
-//    return $collection;
-});
->>>>>>> parent of 0ba60d7 (fb fetch info)
